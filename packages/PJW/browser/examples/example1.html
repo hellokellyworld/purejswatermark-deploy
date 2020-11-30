@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PJW browser example 1</title>
+    </head>
+    <body>
+
+        <h1> Demonstrates loading a local file using PJW on the main thread </h1>
+        <script src="../lib/PJW.min.js"></script>
+        <script>
+        PJW.read("https://upload.wikimedia.org/wikipedia/commons/0/01/Bot-Test.jpg").then(function (lenna) {
+            lenna.resize(256, PJW.AUTO)      // resize
+                 .quality(60)                 // set JPEG quality
+                 .greyscale()                 // set greyscale
+                 .getBase64(PJW.AUTO, function (err, src) {
+                     var img = document.createElement("img");
+                     img.setAttribute("src", src);
+                     document.body.appendChild(img);
+                 });
+        });
+        </script>
+
+    </body>
+</html>
