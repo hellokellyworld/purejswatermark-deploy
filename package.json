@@ -17,17 +17,28 @@
     "clean:build": "rm -rf packages/**/es packages/**/dist",
     "build": "npm run clean:build && lerna run build --stream",
     "build:watch": "lerna run build:watch --parallel",
-    "build-kelly": "npm run build-kelly:node:production && npm run build-kelly:module",
+    "build-kelly": "npm run build-kelly:node:production && npm run build-kelly:module ",
     "build-kelly:watch": "npm run build-kelly:node:debug -- -- --watch --verbose",
     "build-kelly:debug": "npm run build-kelly:node:debug",
     "build-kelly:module": "BABEL_ENV=module babel packages -d es --source-maps --config-file ./babel.config.js",
     "build-kelly:node": "babel packages -d dist --source-maps --config-file ./babel.config.js",
     "build-kelly:node:debug": "BABEL_ENV=development npm run build-kelly:node",
-    "build-kelly:node:production": "BABEL_ENV=production npm run build-kelly:node",
+    "build-kelly:node:production": "BABEL_ENV=production npm run build-kelly:node && npm run copyfonts",
     "clean-kelly": "rm -rf node_modules && npm run clean-kelly:build",
     "clean-kelly:build": "rm -rf ./dist ./es packages/**/es packages/**/dist",
-    "release": "auto shipit"
+    "release": "auto shipit",
+    "copyfonts": "copy-files-from-to --mode production"
   },
+  "copyFiles": [
+    {
+      "from": "packages/plugin-print/fonts/**/*",
+      "to": "dist/fonts/"
+    },
+    {
+      "from": "packages/plugin-print/fonts/**/*",
+      "to": "es/fonts/"
+    }
+  ],
   "devDependencies": {
     "@babel/cli": "^7.7.0",
     "@babel/core": "^7.7.2",
@@ -151,6 +162,7 @@
     "babelify": "^10.0.0",
     "bmp-js": "^0.1.0",
     "buffer": "^5.2.0",
+    "copyfiles": "^2.4.1",
     "envify": "^4.1.0",
     "exif-parser": "^0.1.12",
     "file-type": "^9.0.0",

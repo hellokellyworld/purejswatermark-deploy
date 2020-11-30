@@ -1,3 +1,6 @@
+To install: npm install
+To build: npm run build-kelly
+
 <div align="center">
   <img width="200" height="200"
     src="https://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-11/256/crayon.png">
