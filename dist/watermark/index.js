@@ -181,7 +181,6 @@ var addWatermark = /*#__PURE__*/function () {
 
           case 4:
             main = _context2.sent;
-            console.log("this is main", main);
             _context2.next = 8;
             return PJW.read(watermarkImage);
 
