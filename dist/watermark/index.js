@@ -121,7 +121,7 @@ module.exports.addTextWatermark = /*#__PURE__*/function () {
             _context.next = 21;
             return finalImage.getBase64Async(mime, function (err, data) {
               if (err) {
-                console.log("error get nase64async", err);
+                throw err;
               }
             }).then(function (bufferData) {
               return bufferData;
@@ -201,11 +201,8 @@ var addWatermark = /*#__PURE__*/function () {
 
           case 18:
             mime = _context2.sent;
-            console.log("this is mime", mime);
             _context2.next = 22;
             return main.getBase64Async(mime).then(function (bufferData) {
-              //result = bufferData;
-              //console.log("this is result",result)
               return bufferData; //newResult.src = bufferData;
             })["catch"](function (err) {
               throw err;
