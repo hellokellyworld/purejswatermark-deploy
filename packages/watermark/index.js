@@ -99,7 +99,6 @@ const addWatermark = async(mainImage, watermarkImage, options) => {
    // let result;
     try{  options = checkOptions(options);
         const main = await PJW.read(mainImage);
-        console.log("this is main",main)
         const watermark = await PJW.read(watermarkImage);
         const [newHeight, newWidth] = getDimensions(main.getHeight(), main.getWidth(), watermark.getHeight(), watermark.getWidth(), options.ratio);
         watermark.resize(newWidth, newHeight);
@@ -111,17 +110,12 @@ const addWatermark = async(mainImage, watermarkImage, options) => {
             positionY,
             PJW.HORIZONTAL_ALIGN_CENTER | PJW.VERTICAL_ALIGN_MIDDLE);
         main.quality(100)//.write(options.dstPath);
-        const mime =  await main.getMIME();       
-        console.log("this is mime",mime)   
+        const mime =  await main.getMIME();        
        return await main.getBase64Async(mime).then(bufferData => {
-            //result = bufferData;
-            //console.log("this is result",result)
             return bufferData;
-          //newResult.src = bufferData;
         }).catch(err=>{
             throw err;
         })
-    //return result;
 }
    catch(err){
         throw err
