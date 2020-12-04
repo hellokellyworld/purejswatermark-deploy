@@ -1,5 +1,40 @@
-To install: npm install
-To build: npm run build-kelly
+## Installation
+
+```sh
+npm install purejswatermark
+```
+
+## To build
+
+```sh
+npm run build-kelly
+```
+
+## Import
+
+```sh
+import watermark from 'purejswatermark/dist/watermark';
+```
+
+## Basic Usage
+
+```json
+    const imageWithWatermark = await watermark.addWatermark(
+      "Original Image Path",
+      "Watermark Path"
+    );
+
+    const imageWithTextWatermark = await watermark.addTextWatermark(
+      "Original Image Path",
+      {text: "Your text-watermark content", textSize: 8}
+    );
+```
+
+## Demo -- Javascript front-end
+
+See example:https://github.com/hellokellyworld/purejswatermark-js-example
+
+## Demo -- Typescipt front-end
 
 <div align="center">
   <img width="200" height="200"
