@@ -1,30 +1,31 @@
 {
   "name": "purejswatermark",
-  "version": "0.0.4",
+  "version": "0.0.6",
   "workspaces": [
     "packages/*"
   ],
   "description": "pure js watermark",
-  "repository": "kellykanggithub",
-  "author": "kelly kang",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/hellokellyworld/purejswatermark-deploy.git"
+  },
+  "author": "Kelly Kang<kellykang970803@gmail.com>",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
-  "scripts": {
+  "homepage":"https://github.com/hellokellyworld/purejswatermark-deploy",
+   "license" : "MIT",
+     "scripts": {
     "lint": "xo",
-    "clean": "lerna clean --yes && rm -rf node_modules && npm run clean:build",
-    "clean:build": "rm -rf packages/**/es packages/**/dist",
-    "build": "npm run clean:build && lerna run build --stream",
-    "build:watch": "lerna run build:watch --parallel",
-    "build-kelly": "npm run build-kelly:node:production && npm run build-kelly:module ",
-    "build-kelly:watch": "npm run build-kelly:node:debug -- -- --watch --verbose",
-    "build-kelly:debug": "npm run build-kelly:node:debug",
-    "build-kelly:module": "BABEL_ENV=module babel packages -d es --source-maps --config-file ./babel.config.js",
-    "build-kelly:node": "babel packages -d dist --source-maps --config-file ./babel.config.js",
-    "build-kelly:node:debug": "BABEL_ENV=development npm run build-kelly:node",
-    "build-kelly:node:production": "BABEL_ENV=production npm run build-kelly:node && npm run copyfonts",
-    "clean-kelly": "rm -rf node_modules && npm run clean-kelly:build",
-    "clean-kelly:build": "rm -rf ./dist ./es packages/**/es packages/**/dist",
+    "build": "npm run build:node:production && npm run build:module ",
+    "build:watch": "npm run build:node:debug -- -- --watch --verbose",
+    "build:debug": "npm run build:node:debug",
+    "build:module": "BABEL_ENV=module babel packages -d es --source-maps --config-file ./babel.config.js",
+    "build:node": "babel packages -d dist --source-maps --config-file ./babel.config.js",
+    "build:node:debug": "BABEL_ENV=development npm run build:node",
+    "build:node:production": "BABEL_ENV=production npm run build:node && npm run copyfonts",
+    "clean": "rm -rf node_modules && npm run clean:build",
+    "clean:build": "rm -rf ./dist ./es packages/**/es packages/**/dist",
     "release": "auto shipit",
     "copyfonts": "copy-files-from-to --mode production"
   },
