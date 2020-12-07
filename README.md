@@ -1,8 +1,8 @@
 <div align ="center">
-  <img width="200" height="200"
+  <img width="400" height="400"
     src="https://github.com/hellokellyworld/purejswatermark-js-example/blob/master/public/image.jpeg">
   <h1>purejswatermark</h1>
-  <p>JWatermark program based on pure Javascript, inspired by Jimp and made succinct.</p>
+  <p>Watermark program based on pure Javascript, inspired by Jimp and made succinct.</p>
 </div>
 
 ## Installation
@@ -37,6 +37,10 @@ import watermark from 'purejswatermark/dist/watermark';
     );
 ```
 
+## Article from the Author
+
+Read [Adding watermark using pure javascript with a simple Node.js package — purejswatermark](https://kelly-kang.medium.com/adding-watermark-using-pure-javascript-with-a-simple-node-js-package-purejswatermark-8351d60aef8f)
+
 ## Demo -- Javascript front-end
 
 See example:https://github.com/hellokellyworld/purejswatermark-js-example
@@ -61,10 +65,10 @@ This package is created based on Jimp https://www.npmjs.com/package/jimp, but fo
 
 ## Future Work
 
-1.Text color
-2.Text position
-3.Support of tiff and gif
-4.Write to disk with cli tools
-5.Support of UTF-8 fonts
-6.Repeating pattern with spacing
-7.Text opacity
+- 1.Text color
+- 2.Text position
+- 3.Support of tiff and gif
+- 4.Write to disk with cli tools
+- 5.Support of UTF-8 fonts
+- 6.Repeating pattern with spacing
+- 7.Text opacity
